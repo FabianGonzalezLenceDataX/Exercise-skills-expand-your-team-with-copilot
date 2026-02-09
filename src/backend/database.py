@@ -165,7 +165,7 @@ initial_activities = {
         "participants": ["william@mergington.edu", "jacob@mergington.edu"]
     },
     "Manga Maniacs": {
-        "description": "Dive into epic adventures, supernatural battles, and heartwarming slice-of-life tales! Discover iconic Japanese manga series, discuss your favorite characters, and share recommendations with fellow otaku",
+        "description": "Dive into epic adventures, supernatural battles, and heartwarming slice-of-life tales! Discover iconic Japanese manga series, discuss your favorite characters, and share recommendations with fellow manga enthusiasts",
         "schedule": "Tuesdays, 7:00 PM - 8:30 PM",
         "schedule_details": {
             "days": ["Tuesday"],
