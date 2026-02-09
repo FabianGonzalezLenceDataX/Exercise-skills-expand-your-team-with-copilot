@@ -523,8 +523,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // Create a specific URL for this activity by adding the activity name as a hash
     const activityUrl = `${window.location.origin}${window.location.pathname}#${encodeURIComponent(name)}`;
     const shareUrl = encodeURIComponent(activityUrl);
-    // Truncate description to 100 characters for sharing and remove any HTML tags
-    const plainDescription = details.description.replace(/<[^>]*>/g, '');
+    // Create a temporary DOM element to safely strip HTML tags from description
+    const tempDiv = document.createElement('div');
+    tempDiv.textContent = details.description;
+    const plainDescription = tempDiv.textContent || tempDiv.innerText || '';
+    // Truncate description to 100 characters for sharing
     const truncatedDescription = plainDescription.length > 100 
       ? plainDescription.substring(0, 97) + '...' 
       : plainDescription;
