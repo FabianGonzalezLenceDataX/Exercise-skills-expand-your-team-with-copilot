@@ -519,6 +519,24 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     `;
 
+    // Create social sharing buttons
+    const shareUrl = encodeURIComponent(window.location.href);
+    const shareText = encodeURIComponent(`Check out ${name} at Mergington High School: ${details.description}`);
+    const shareButtons = `
+      <div class="social-share-buttons">
+        <span class="share-label">Share:</span>
+        <a href="https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}" target="_blank" rel="noopener noreferrer" class="share-button twitter-share" aria-label="Share on Twitter">
+          <span class="share-icon">🐦</span>
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=${shareUrl}" target="_blank" rel="noopener noreferrer" class="share-button facebook-share" aria-label="Share on Facebook">
+          <span class="share-icon">📘</span>
+        </a>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}" target="_blank" rel="noopener noreferrer" class="share-button linkedin-share" aria-label="Share on LinkedIn">
+          <span class="share-icon">💼</span>
+        </a>
+      </div>
+    `;
+
     activityCard.innerHTML = `
       ${tagHtml}
       <h4>${name}</h4>
@@ -527,6 +545,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <strong>Schedule:</strong> ${formattedSchedule}
         <span class="tooltip-text">Regular meetings at this time throughout the semester</span>
       </p>
+      ${shareButtons}
       ${capacityIndicator}
       <div class="participants-list">
         <h5>Current Participants:</h5>
