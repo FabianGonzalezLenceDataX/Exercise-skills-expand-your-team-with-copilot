@@ -520,8 +520,15 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
 
     // Create social sharing buttons
-    const shareUrl = encodeURIComponent(window.location.href);
-    const shareText = encodeURIComponent(`Check out ${name} at Mergington High School: ${details.description}`);
+    // Create a specific URL for this activity by adding the activity name as a hash
+    const activityUrl = `${window.location.origin}${window.location.pathname}#${encodeURIComponent(name)}`;
+    const shareUrl = encodeURIComponent(activityUrl);
+    // Truncate description to 100 characters for sharing and remove any HTML tags
+    const plainDescription = details.description.replace(/<[^>]*>/g, '');
+    const truncatedDescription = plainDescription.length > 100 
+      ? plainDescription.substring(0, 97) + '...' 
+      : plainDescription;
+    const shareText = encodeURIComponent(`Check out ${name} at Mergington High School: ${truncatedDescription}`);
     const shareButtons = `
       <div class="social-share-buttons">
         <span class="share-label">Share:</span>
